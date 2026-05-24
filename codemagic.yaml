@@ -8,6 +8,6 @@ workflows:
       - name: Set permission
         script: chmod +x gradlew
       - name: Build Debug APK
-        script: ./gradlew assembleDebug --stacktrace
+        script: ./gradlew assembleDebug --warning-mode all --stacktrace
     artifacts:
       - app/build/outputs/apk/debug/*.apk
