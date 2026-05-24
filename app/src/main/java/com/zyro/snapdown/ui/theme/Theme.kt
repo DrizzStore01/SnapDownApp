@@ -1,47 +1,19 @@
 package com.zyro.snapdown.ui.theme
 
-import android.app.Activity
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
-import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.platform.LocalView
-import androidx.core.view.WindowCompat
+import androidx.compose.ui.graphics.Color
 
-private val SnapDownColors = darkColorScheme(
-    primary             = SnapBlue,
-    onPrimary           = SnapTextPrimary,
-    primaryContainer    = SnapSurface,
-    secondary           = SnapCyan,
-    onSecondary         = SnapTextPrimary,
-    tertiary            = SnapPurple,
-    background          = SnapBackground,
-    onBackground        = SnapTextPrimary,
-    surface             = SnapSurface,
-    onSurface           = SnapTextPrimary,
-    surfaceVariant      = SnapSurface2,
-    onSurfaceVariant    = SnapTextSecondary,
-    error               = SnapRed
+private val DarkColors = darkColorScheme(
+    background   = Color(0xFF0F172A),
+    surface      = Color(0xFF1E293B),
+    primary      = Color(0xFF3B82F6),
+    onBackground = Color(0xFFF8FAFC),
+    onSurface    = Color(0xFFF8FAFC),
 )
 
 @Composable
 fun SnapDownTheme(content: @Composable () -> Unit) {
-    val view = LocalView.current
-    if (!view.isInEditMode) {
-        SideEffect {
-            val window = (view.context as Activity).window
-            window.statusBarColor = SnapBackground.toArgb()
-            window.navigationBarColor = SnapBackground.toArgb()
-            WindowCompat.getInsetsController(window, view).apply {
-                isAppearanceLightStatusBars = false
-                isAppearanceLightNavigationBars = false
-            }
-        }
-    }
-    MaterialTheme(
-        colorScheme = SnapDownColors,
-        typography  = Typography,
-        content     = content
-    )
+    MaterialTheme(colorScheme = DarkColors, content = content)
 }

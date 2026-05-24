@@ -5,7 +5,7 @@ workflows:
     environment:
       java: 17
     scripts:
-      - name: Set gradlew permission
+      - name: Set permission
         script: chmod +x gradlew
       - name: Build Debug APK
         script: ./gradlew assembleDebug --stacktrace
