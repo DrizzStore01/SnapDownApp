@@ -15,5 +15,9 @@ private val DarkColors = darkColorScheme(
 
 @Composable
 fun SnapDownTheme(content: @Composable () -> Unit) {
-    MaterialTheme(colorScheme = DarkColors, content = content)
+    MaterialTheme(
+        colorScheme = DarkColors,
+        typography  = SnapTypography,
+        content     = content
+    )
 }
